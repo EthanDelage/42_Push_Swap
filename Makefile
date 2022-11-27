@@ -6,7 +6,7 @@
 #    By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:49:53 by edelage           #+#    #+#              #
-#    Updated: 2022/11/27 11:59:29 by edelage          ###   ########lyon.fr    #
+#    Updated: 2022/11/27 13:12:23 by edelage          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,8 +28,7 @@ LIBFT_DIR =		libft/
 #  Files
 # ***************************
 
-SRCS =			
-				main.c \
+SRCS =			main.c \
 
 HEADER =		$(addprefix $(INC_DIR), push_swap.h \
 										struct.h)
