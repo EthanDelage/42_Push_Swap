@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   lst_issort_int.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 12:51:06 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/28 03:09:19 by edelage          ###   ########lyon.fr   */
+/*   Created: 2022/11/28 00:55:47 by edelage           #+#    #+#             */
+/*   Updated: 2022/11/28 01:08:26 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+#include "lst_int.h"
 
-#ifndef PARSING_H
-# define PARSING_H
+int	lst_issort_int(t_list_int *start)
+{
+	int	previous_val;
 
-# include <errno.h>
-# include <stdlib.h>
-
-# include "../libft/includes/libft.h"
-# include "lst_int.h"
-
-void		print_error_msg(int error_code);
-int			check_number(const char *str);
-t_list_int	*init_a_stack(int argc, char **argv);
-
-#endif
+	if (!start)
+		return (-1);
+	previous_val = start->content;
+	start = start->next;
+	while (start)
+	{
+		if (start->content >= previous_val)
+			return (0);
+		previous_val = start->content;
+		start = start->next;
+	}
+	return (1);
+}

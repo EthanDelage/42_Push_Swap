@@ -6,7 +6,7 @@
 #    By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/05 14:38:11 by edelage           #+#    #+#              #
-#    Updated: 2022/11/27 11:56:24 by edelage          ###   ########lyon.fr    #
+#    Updated: 2022/11/28 03:09:58 by edelage          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ CHAR =			ft_isalpha.c \
 				ft_isalnum.c \
 				ft_isascii.c \
 				ft_isprint.c \
+				ft_isspace.c \
 				ft_toupper.c \
 				ft_tolower.c \
 

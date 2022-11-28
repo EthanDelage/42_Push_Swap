@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:07:58 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/27 13:01:23 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/28 03:06:20 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 # include <errno.h>
 # include <stdlib.h>
-# include "../libft/includes/libft.h"
 
-# define ERROR_MSG	"Error\n"
+# include "../libft/includes/libft.h"
+# include "parsing.h"
+# include "lst_int.h"
 
 #endif

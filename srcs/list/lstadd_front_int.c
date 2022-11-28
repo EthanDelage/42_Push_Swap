@@ -1,26 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   lstadd_front_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 12:51:06 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/28 03:09:19 by edelage          ###   ########lyon.fr   */
+/*   Created: 2022/11/28 02:51:50 by edelage           #+#    #+#             */
+/*   Updated: 2022/11/28 03:55:21 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+#include "lst_int.h"
 
-#ifndef PARSING_H
-# define PARSING_H
-
-# include <errno.h>
-# include <stdlib.h>
-
-# include "../libft/includes/libft.h"
-# include "lst_int.h"
-
-void		print_error_msg(int error_code);
-int			check_number(const char *str);
-t_list_int	*init_a_stack(int argc, char **argv);
-
-#endif
+void	lstadd_front_int(t_list_int **start, t_list_int *new_elem)
+{
+	if (!start || !new_elem)
+		return ;
+	if (*start)
+		new_elem->next = *start;
+	*start = new_elem;
+}

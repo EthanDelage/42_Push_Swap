@@ -6,7 +6,7 @@
 #    By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:49:53 by edelage           #+#    #+#              #
-#    Updated: 2022/11/27 13:12:23 by edelage          ###   ########lyon.fr    #
+#    Updated: 2022/11/28 04:06:39 by edelage          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRC_DIR =		srcs/
 
 OBJ_DIR =		.objs/
 
-DIR =			
+DIR =			parsing/ \
+				list/ \
 
 LIBFT_DIR =		libft/
 
@@ -28,9 +29,23 @@ LIBFT_DIR =		libft/
 #  Files
 # ***************************
 
-SRCS =			main.c \
+LIST =			lstadd_front_int.c \
+				lst_display_int.c \
+				lstadd_back_int.c \
+				lst_issort_int.c \
+				lstclear_int.c \
+				lstnew_int.c \
+
+PARSING =		check_number.c \
+				parsing.c \
+				error.c \
+
+SRCS =			$(addprefix parsing/, $(PARSING)) \
+				$(addprefix list/, $(LIST)) \
+				main.c \
 
 HEADER =		$(addprefix $(INC_DIR), push_swap.h \
+										list.h \
 										struct.h)
 
 OBJS =			$(addprefix $(OBJ_DIR), $(SRCS:.c=.o))
@@ -59,7 +74,8 @@ MKDIR =			mkdir -p
 # Rules
 # ***************************
 
-all:			lib $(NAME)
+all:			lib
+				$(MAKE) -j $(NAME)
 
 $(NAME):		$(OBJ_DIR) $(OBJS)
 				$(CC) $(FLAGS) -I $(INC_DIR) $(OBJS) -o $@ $(LIBFT)
@@ -79,7 +95,6 @@ clean:
 				$(RM) $(OBJS)
 				$(RM) $(DEPS)
 				$(MAKE) clean -C $(LIBFT_DIR)
-				$(MAKE) clean -C $(MLX_DIR)
 
 fclean:			clean
 				$(RM) $(NAME)

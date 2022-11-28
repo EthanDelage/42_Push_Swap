@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   lst_int_new.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 12:51:06 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/28 03:09:19 by edelage          ###   ########lyon.fr   */
+/*   Created: 2022/11/28 00:40:01 by edelage           #+#    #+#             */
+/*   Updated: 2022/11/28 03:48:45 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+#include "lst_int.h"
 
-#ifndef PARSING_H
-# define PARSING_H
+t_list_int	*lstnew_int(int content)
+{
+	t_list_int	*elem;
 
-# include <errno.h>
-# include <stdlib.h>
-
-# include "../libft/includes/libft.h"
-# include "lst_int.h"
-
-void		print_error_msg(int error_code);
-int			check_number(const char *str);
-t_list_int	*init_a_stack(int argc, char **argv);
-
-#endif
+	elem = (t_list_int *) malloc(sizeof(t_list));
+	if (elem == NULL)
+		return (NULL);
+	elem->content = content;
+	elem->next = NULL;
+	return (elem);
+}

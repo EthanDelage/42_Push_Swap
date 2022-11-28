@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.h                                          :+:      :+:    :+:   */
+/*   lst_display_int.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 12:51:06 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/28 03:09:19 by edelage          ###   ########lyon.fr   */
+/*   Created: 2022/11/28 01:08:32 by edelage           #+#    #+#             */
+/*   Updated: 2022/11/28 03:55:13 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+#include "lst_int.h"
 
-#ifndef PARSING_H
-# define PARSING_H
-
-# include <errno.h>
-# include <stdlib.h>
-
-# include "../libft/includes/libft.h"
-# include "lst_int.h"
-
-void		print_error_msg(int error_code);
-int			check_number(const char *str);
-t_list_int	*init_a_stack(int argc, char **argv);
-
-#endif
+void	lst_display_int(t_list_int *start)
+{
+	while (start)
+	{
+		ft_putnbr_fd(start->content, 1);
+		ft_putchar_fd('\n', 1);
+		start = start->next;
+	}
+}
