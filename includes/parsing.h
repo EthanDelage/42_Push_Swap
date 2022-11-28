@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:51:06 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/28 03:09:19 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/28 05:21:01 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@
 # include "../libft/includes/libft.h"
 # include "lst_int.h"
 
-void		print_error_msg(int error_code);
 int			check_number(const char *str);
-t_list_int	*init_a_stack(int argc, char **argv);
+void		print_error_msg(int error_code);
+t_list_int	*parse_arg(int argc, char **argv);
 
 #endif
