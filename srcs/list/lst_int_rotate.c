@@ -6,15 +6,15 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 18:46:18 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/29 01:08:41 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 21:47:07 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 #include "lst_int.h"
 
 void	r_one(t_list_int **stack)
 {
-	t_list_int *last;
-	
+	t_list_int	*last;
+
 	last = lstlast_int(*stack);
 	last->next = *stack;
 	*stack = (*stack)->next;
@@ -23,7 +23,7 @@ void	r_one(t_list_int **stack)
 
 void	rr_one(t_list_int **stack)
 {
-	t_list_int *elem_before_last;
+	t_list_int	*elem_before_last;
 
 	elem_before_last = before_last(*stack);
 	elem_before_last->next->next = *stack;

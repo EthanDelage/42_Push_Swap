@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:52:33 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/29 19:41:22 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 22:04:00 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 #include "parsing.h"
@@ -53,7 +53,7 @@ static t_list_int	*init_a_stack(int argc, char **argv)
 	while (argc != 1)
 	{
 		number = check_number(argv[argc - 1]);
-		if (errno == ERANGE || errno == EINVAL)
+		if (number == -1 && (errno == ERANGE || errno == EINVAL))
 			free_for_error(&start);
 		new_elem = lstnew_int(number);
 		if (new_elem == NULL)
@@ -70,8 +70,8 @@ t_list_int	*parse_arg(int argc, char **argv)
 
 	init_lst_int = NULL;
 	init_lst_int = init_a_stack(argc, argv);
-	if (check_dup(init_lst_int) != 0
-			&& convert_by_index(init_lst_int) == FAILURE)
+	if (convert_by_index(init_lst_int) == FAILURE
+		&& check_dup(init_lst_int) != 0)
 	{
 		errno = EINVAL;
 		free_for_error(&init_lst_int);

@@ -6,7 +6,7 @@
 #    By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:49:53 by edelage           #+#    #+#              #
-#    Updated: 2022/11/29 19:39:21 by edelage          ###   ########lyon.fr    #
+#    Updated: 2022/11/29 21:04:52 by edelage          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,6 +39,7 @@ LIST =			lstadd_front_int.c \
 				lst_int_swap.c \
 				lst_int_push.c \
 				lstclear_int.c \
+				lstsize_int.c \
 				lstlast_int.c \
 				lstnew_int.c \
 
