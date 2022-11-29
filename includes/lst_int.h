@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:38:36 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/29 01:13:58 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 19:42:03 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <stdlib.h>
 # include "../libft/includes/libft.h"
 
+# define SUCCESS	0
+# define FAILURE	1
+
 typedef struct s_list_int
 {
 	int					content;
@@ -23,6 +26,7 @@ typedef struct s_list_int
 }				t_list_int;
 
 t_list_int	*lstnew_int(int content);
+size_t		lstsize_int(t_list_int *stack);
 t_list_int	*before_last(t_list_int *stack);
 t_list_int	*lstlast_int(t_list_int *start);
 void		lstclear_int(t_list_int **start);

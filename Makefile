@@ -6,7 +6,7 @@
 #    By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:49:53 by edelage           #+#    #+#              #
-#    Updated: 2022/11/29 01:01:21 by edelage          ###   ########lyon.fr    #
+#    Updated: 2022/11/29 19:39:21 by edelage          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,6 +21,7 @@ SRC_DIR =		srcs/
 OBJ_DIR =		.objs/
 
 DIR =			parsing/ \
+				sort/ \
 				list/ \
 
 LIBFT_DIR =		libft/
@@ -41,12 +42,16 @@ LIST =			lstadd_front_int.c \
 				lstlast_int.c \
 				lstnew_int.c \
 
+SORT =			bubble_sort.c \
+
 
 PARSING =		check_number.c \
+				calc_index.c \
 				parsing.c \
 				error.c \
 
 SRCS =			$(addprefix parsing/, $(PARSING)) \
+				$(addprefix sort/, $(SORT)) \
 				$(addprefix list/, $(LIST)) \
 				main.c \
 

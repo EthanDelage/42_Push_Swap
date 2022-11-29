@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:57:22 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/29 01:13:53 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 16:20:08 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -20,7 +20,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		print_error_msg(EINVAL);
 	stack_a = parse_arg(argc, argv);
-
+	lst_display_int(stack_a);
 	lstclear_int(&stack_a);
 	return (0);
 }

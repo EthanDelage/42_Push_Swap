@@ -1,16 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   struct.h                                           :+:      :+:    :+:   */
+/*   lstsize_int.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 12:08:26 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/27 12:09:23 by edelage          ###   ########lyon.fr   */
+/*   Created: 2022/11/29 18:56:54 by edelage           #+#    #+#             */
+/*   Updated: 2022/11/29 18:59:05 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+#include "lst_int.h"
 
-#ifndef STRUCT_H
-# define STRUCT_H
+size_t	lstsize_int(t_list_int *stack)
+{
+	size_t	count;
 
-#endif
+	count = 0;
+	while (stack)
+	{
+		stack = stack->next;
+		count++;
+	}
+	return (count);
+}
