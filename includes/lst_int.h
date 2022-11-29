@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:38:36 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/28 18:57:46 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 01:13:58 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,12 @@ void		lstadd_back_int(t_list_int **last, t_list_int *new_elem);
 void		lstadd_front_int(t_list_int **start, t_list_int *new_elem);
 
 /* ==== Operations ==== */
-void		swap(t_list_int **stack);
-void		swap_swap(t_list_int **stack_a, t_list_int **stack_b);
-void		push(t_list_int **stack, t_list_int **stack_where_push);
+void		s_one(t_list_int **stack);
+void		r_one(t_list_int **stack);
+void		rr_one(t_list_int **stack);
+void		ss(t_list_int **stack_a, t_list_int **stack_b);
+void		rr(t_list_int **stack_a, t_list_int **stack_b);
+void		rrr(t_list_int **stack_a, t_list_int **stack_b);
+void		p_one(t_list_int **stack, t_list_int **stack_where_push);
 
 #endif

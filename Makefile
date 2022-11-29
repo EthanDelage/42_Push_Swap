@@ -6,7 +6,7 @@
 #    By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:49:53 by edelage           #+#    #+#              #
-#    Updated: 2022/11/28 18:31:10 by edelage          ###   ########lyon.fr    #
+#    Updated: 2022/11/29 01:01:21 by edelage          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,11 +30,17 @@ LIBFT_DIR =		libft/
 # ***************************
 
 LIST =			lstadd_front_int.c \
+				lst_before_last.c \
 				lst_display_int.c \
 				lstadd_back_int.c \
 				lst_issort_int.c \
+				lst_int_rotate.c \
+				lst_int_swap.c \
+				lst_int_push.c \
 				lstclear_int.c \
+				lstlast_int.c \
 				lstnew_int.c \
+
 
 PARSING =		check_number.c \
 				parsing.c \
@@ -75,7 +81,7 @@ MKDIR =			mkdir -p
 # ***************************
 
 all:			lib
-				$(MAKE) -j $(NAME)
+				$(MAKE) $(NAME)
 
 $(NAME):		$(OBJ_DIR) $(OBJS)
 				$(CC) $(FLAGS) -I $(INC_DIR) $(OBJS) -o $@ $(LIBFT)

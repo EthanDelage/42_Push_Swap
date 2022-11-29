@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:52:33 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/28 05:22:08 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 01:13:55 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 #include "parsing.h"
@@ -68,6 +68,7 @@ t_list_int	*parse_arg(int argc, char **argv)
 {
 	t_list_int	*init_lst_int;
 
+	init_lst_int = NULL;
 	init_lst_int = init_a_stack(argc, argv);
 	if (check_dup(init_lst_int) != 0)
 	{
