@@ -6,15 +6,16 @@
 /*   By: edelage <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 23:42:48 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/08 00:37:40 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/29 22:21:42 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 void	ft_lstdelone(t_list *lst, void (*del)(void *))
 {
-	if (lst == NULL || del == NULL)
+	if (lst == NULL)
 		return ;
-	(*del)(lst->content);
+	if (del != NULL)
+		(*del)(lst->content);
 	free(lst);
 }
