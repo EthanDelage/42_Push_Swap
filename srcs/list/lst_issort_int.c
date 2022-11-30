@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:55:47 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/28 01:08:26 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/30 11:03:42 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 #include "lst_int.h"
@@ -21,7 +21,7 @@ int	lst_issort_int(t_list_int *start)
 	start = start->next;
 	while (start)
 	{
-		if (start->content >= previous_val)
+		if (start->content <= previous_val)
 			return (0);
 		previous_val = start->content;
 		start = start->next;
