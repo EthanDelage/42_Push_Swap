@@ -20,11 +20,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		print_error_msg(EINVAL);
 	stack_a = parse_arg(argc, argv);
-	ft_putstr_fd("a:\n", 1);
-	lst_display_int(stack_a);
 	calculate_operation(&stack_a);
-	ft_putstr_fd("a:\n", 1);
-	lst_display_int(stack_a);
 	lstclear_int(&stack_a);
 	return (0);
 }

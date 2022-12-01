@@ -71,7 +71,7 @@ t_list_int	*parse_arg(int argc, char **argv)
 	init_lst_int = NULL;
 	init_lst_int = init_a_stack(argc, argv);
 	if (convert_by_index(init_lst_int) == FAILURE
-		&& check_dup(init_lst_int) != 0)
+		|| check_dup(init_lst_int) != 0)
 	{
 		errno = EINVAL;
 		free_for_error(&init_lst_int);

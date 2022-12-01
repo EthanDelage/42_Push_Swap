@@ -4,3 +4,4 @@ a.out
 .objs/
 .idea/
 CMakeLists.txt
+push_swap_tester

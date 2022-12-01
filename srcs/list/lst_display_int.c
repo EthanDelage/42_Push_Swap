@@ -20,3 +20,11 @@ void	lst_display_int(t_list_int *start)
 		start = start->next;
 	}
 }
+
+void	display_stack(t_list_int *stack_a, t_list_int *stack_b)
+{
+	ft_putstr_fd("a:\n", 1);
+	lst_display_int(stack_a);
+	ft_putstr_fd("b:\n", 1);
+	lst_display_int(stack_b);
+}
