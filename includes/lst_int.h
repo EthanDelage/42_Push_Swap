@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 00:38:36 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/29 19:42:03 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/30 13:34:08 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_list_int	*lstlast_int(t_list_int *start);
 void		lstclear_int(t_list_int **start);
 int			lst_issort_int(t_list_int *start);
 void		lst_display_int(t_list_int *start);
+ssize_t		lst_search_int(t_list_int *start, int to_find);
 void		lstadd_back_int(t_list_int **last, t_list_int *new_elem);
 void		lstadd_front_int(t_list_int **start, t_list_int *new_elem);
 

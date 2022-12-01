@@ -6,7 +6,7 @@
 #    By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:49:53 by edelage           #+#    #+#              #
-#    Updated: 2022/11/29 22:23:06 by edelage          ###   ########lyon.fr    #
+#    Updated: 2022/11/30 13:37:34 by edelage          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ LIST =			lstadd_front_int.c \
 				lst_before_last.c \
 				lst_display_int.c \
 				lstadd_back_int.c \
+				lst_search_int.c \
 				lst_issort_int.c \
 				lst_int_rotate.c \
 				lst_int_swap.c \

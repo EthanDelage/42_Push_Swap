@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 22:12:42 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/30 11:32:20 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/11/30 15:45:29 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"
@@ -74,18 +74,62 @@ void	push_in_b(t_list_int **stack_a, t_list_int **stack_b, size_t size_a,
 	last_rotate = check_move_b(stack_a, stack_b, last_rotate);
 }
 
-void	check_fast_place(t_list_int **stack_a, t_list_int **stack_b) 
+int	calc_elem_sort(t_list_int *stack_a, int max_not_push)
 {
+	int	elem_sort;
+	int	last_rotate;
 
+	elem_sort = 0;
+	last_rotate = -1;
+	while (stack_a)
+	{
+		if ((last_rotate == -1 && max_not_push >= stack_a->content)
+			|| stack_a->content == last_rotate + 1)
+		{
+			last_rotate = stack_a->content;
+			elem_sort += 1;
+		}
+		stack_a = stack_a->next;
+	}
+	return (elem_sort);
 }
+
+size_t	calc_max_not_push(t_list_int **stack_a)
+{
+	t_list_int		*cpy_stack;
+	size_t			nb_elem_sort;
+	size_t			max_nb_sort;
+	size_t			best_index;
+
+	cpy_stack = *stack_a;
+	best_index = cpy_stack->content;
+	max_nb_sort = calc_elem_sort(*stack_a, cpy_stack->content);
+	cpy_stack = cpy_stack->next;
+	while (cpy_stack)
+	{
+		nb_elem_sort = calc_elem_sort(*stack_a, cpy_stack->content);
+		if (nb_elem_sort > max_nb_sort)
+		{
+			max_nb_sort = nb_elem_sort;
+			best_index = lst_search_int(*stack_a, cpy_stack->content);
+		}
+		cpy_stack = cpy_stack->next;
+	}
+	return (best_index);
+}
+
+//void	check_fast_place(t_list_int **stack_a, t_list_int **stack_b) 
+//{
+//	
+//}
 
 void	calculate_operation(t_list_int **stack_a)
 {
-	const size_t	nb_arg = lstsize_int(*stack_a);
+	size_t	nb_arg = lstsize_int(*stack_a);
 	t_list_int		*stack_b;
 
 	stack_b = NULL;
-	push_in_b(stack_a, &stack_b, nb_arg, nb_arg / 2);
+	push_in_b(stack_a, &stack_b, nb_arg, calc_max_not_push(stack_a));
 	ft_putstr_fd("b:\n", 1);
 	lst_display_int(stack_b);
 	lstclear_int(&stack_b);
