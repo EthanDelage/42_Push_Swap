@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:57:22 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/29 22:33:30 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/12/01 13:43:22 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 #include "push_swap.h"

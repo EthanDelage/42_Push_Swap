@@ -6,7 +6,7 @@
 #    By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:49:53 by edelage           #+#    #+#              #
-#    Updated: 2022/11/30 13:37:34 by edelage          ###   ########lyon.fr    #
+#    Updated: 2022/12/01 13:48:02 by edelage          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,6 +45,7 @@ LIST =			lstadd_front_int.c \
 				lstnew_int.c \
 
 SORT =			bubble_sort.c \
+				first_step.c \
 				calc_operation.c \
 
 
