@@ -6,7 +6,7 @@
 #    By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:49:53 by edelage           #+#    #+#              #
-#    Updated: 2022/12/01 13:48:02 by edelage          ###   ########lyon.fr    #
+#    Updated: 2022/12/01 18:58:16 by edelage          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ LIST =			lstadd_front_int.c \
 				lst_search_int.c \
 				lst_issort_int.c \
 				lst_int_rotate.c \
+				lst_index_int.c \
 				lst_int_swap.c \
 				lst_int_push.c \
 				lstclear_int.c \
@@ -75,7 +76,7 @@ LIBFT =			$(LIBFT_DIR)libft.a
 # Compilation
 # ***************************
 
-FLAGS =			-Wall -Wextra -Werror
+FLAGS =			-Wall -Wextra -Werror -g
 
 DEP_FLAGS =		-MMD -MP
 
@@ -97,7 +98,7 @@ $(NAME):		$(OBJ_DIR) $(OBJS)
 
 -include		$(DEPS)
 
-$(OBJ_DIR)%.o:	$(SRC_DIR)%.c Makefile
+$(OBJ_DIR)%.o:	$(SRC_DIR)%.c
 				$(CC) $(FLAGS) $(DEP_FLAGS) -I $(INC_DIR) -c $< -o $@
 
 $(OBJ_DIR):

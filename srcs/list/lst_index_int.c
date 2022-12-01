@@ -1,30 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lst_index_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 12:57:22 by edelage           #+#    #+#             */
-/*   Updated: 2022/12/01 19:16:48 by edelage          ###   ########lyon.fr   */
+/*   Created: 2022/12/01 15:02:21 by edelage           #+#    #+#             */
+/*   Updated: 2022/12/01 19:37:07 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "lst_int.h"
 
-#include <stdio.h>
-
-int	main(int argc, char **argv)
+t_list_int	*lst_index_int(t_list_int *stack, size_t index)
 {
-	t_list_int	*stack_a;
+	size_t	count;
 
-	if (argc == 1)
-		print_error_msg(EINVAL);
-	stack_a = parse_arg(argc, argv);
-	ft_putstr_fd("a:\n", 1);
-	lst_display_int(stack_a);
-	calculate_operation(&stack_a);
-	ft_putstr_fd("a:\n", 1);
-	lst_display_int(stack_a);
-	lstclear_int(&stack_a);
-	return (0);
+	count = 0;
+	while (stack && count < index)
+	{
+		count++;
+		stack = stack->next;
+	}
+	return (stack);
 }
