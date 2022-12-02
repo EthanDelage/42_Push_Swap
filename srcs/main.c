@@ -11,13 +11,20 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-#include <stdio.h>
+void	display(t_list_int *stack)
+{
+	while (stack)
+	{
+		ft_putnbr_fd(stack->content, 1);
+		ft_putchar_fd('\n', 1);
+		stack = stack->next;
+	}
+}
 
 int	main(int argc, char **argv)
 {
 	t_list_int	*stack_a;
 
-	printf("%s\n", argv[1]);
 	if (argc == 1)
 		print_error_msg(EINVAL);
 	stack_a = parse_arg(argc, argv);

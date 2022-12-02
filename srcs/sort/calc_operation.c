@@ -52,13 +52,24 @@ void	sort_index(t_list_int **stack_a, t_list_int **stack_b
 	push_all_a(stack_a, stack_b);
 }
 
+int	lst_issort(t_list_int *stack_a)
+{
+	while (stack_a)
+	{
+		if (stack_a->content != 0)
+			return (0);
+		stack_a = stack_a->next;
+	}
+	return (1);
+}
+
 void	calculate_operation(t_list_int **stack_a)
 {
 	const size_t	nb_arg = lstsize_int(*stack_a);
 	t_list_int		*stack_b;
 
 	stack_b = NULL;
-	while (lstlast_int(*stack_a)->content)
+	while (!lst_issort(*stack_a))
 	{
 		sort_index(stack_a, &stack_b, nb_arg);
 		right_shift(*stack_a);
