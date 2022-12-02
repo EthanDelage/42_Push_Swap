@@ -59,14 +59,9 @@ add_executable(Push_Swap
         libft/srcs/string/ft_strtrim.c
         libft/srcs/string/ft_substr.c
         srcs/list/lst_before_last.c
-        srcs/list/lst_display_int.c
-        srcs/list/lst_index_int.c
         srcs/list/lst_int_push.c
         srcs/list/lst_int_rotate.c
         srcs/list/lst_int_swap.c
-        srcs/list/lst_issort_int.c
-        srcs/list/lst_search_int.c
-        srcs/list/lstadd_back_int.c
         srcs/list/lstadd_front_int.c
         srcs/list/lstclear_int.c
         srcs/list/lstlast_int.c
@@ -78,4 +73,4 @@ add_executable(Push_Swap
         srcs/parsing/parsing.c
         srcs/sort/bubble_sort.c
         srcs/sort/calc_operation.c
-        srcs/main.c srcs/sort/fast_place.c)
+        srcs/main.c)

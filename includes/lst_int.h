@@ -30,13 +30,6 @@ size_t		lstsize_int(t_list_int *stack);
 t_list_int	*before_last(t_list_int *stack);
 t_list_int	*lstlast_int(t_list_int *start);
 void		lstclear_int(t_list_int **start);
-int			lst_issort_int(t_list_int *start);
-void		lst_display_int(t_list_int *start);
-ssize_t		lst_search_int(t_list_int *start, int to_find);
-t_list_int	*lst_index_int(t_list_int *stack, size_t index);
-void		display_stack(t_list_int *stack_a, t_list_int *stack_b);
-void		lstadd_back_int(t_list_int **last, t_list_int *new_elem);
-int			lst_issort_size_int(t_list_int *start, size_t size_list);
 void		lstadd_front_int(t_list_int **start, t_list_int *new_elem);
 
 /* ==== Operations ==== */

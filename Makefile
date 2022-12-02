@@ -32,12 +32,7 @@ LIBFT_DIR =		libft/
 
 LIST =			lstadd_front_int.c \
 				lst_before_last.c \
-				lst_display_int.c \
-				lstadd_back_int.c \
-				lst_search_int.c \
-				lst_issort_int.c \
 				lst_int_rotate.c \
-				lst_index_int.c \
 				lst_int_swap.c \
 				lst_int_push.c \
 				lstclear_int.c \
@@ -46,7 +41,6 @@ LIST =			lstadd_front_int.c \
 				lstnew_int.c \
 
 SORT =			bubble_sort.c \
-				fast_place.c \
 				calc_operation.c \
 
 

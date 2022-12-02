@@ -17,6 +17,7 @@ int	main(int argc, char **argv)
 {
 	t_list_int	*stack_a;
 
+	printf("%s\n", argv[1]);
 	if (argc == 1)
 		print_error_msg(EINVAL);
 	stack_a = parse_arg(argc, argv);
