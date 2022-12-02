@@ -1,0 +1,81 @@
+cmake_minimum_required(VERSION 3.21)
+project(Push_Swap C)
+
+set(CMAKE_C_STANDARD 11)
+
+include_directories(includes)
+include_directories(libft/includes)
+
+add_executable(Push_Swap
+        includes/lst_int.h
+        includes/parsing.h
+        includes/push_swap.h
+        libft/includes/get_next_line.h
+        libft/includes/libft.h
+        libft/srcs/char/ft_isalnum.c
+        libft/srcs/char/ft_isalpha.c
+        libft/srcs/char/ft_isascii.c
+        libft/srcs/char/ft_isdigit.c
+        libft/srcs/char/ft_isprint.c
+        libft/srcs/char/ft_isspace.c
+        libft/srcs/char/ft_tolower.c
+        libft/srcs/char/ft_toupper.c
+        libft/srcs/convert/ft_atoi.c
+        libft/srcs/convert/ft_itoa.c
+        libft/srcs/fd/ft_putchar_fd.c
+        libft/srcs/fd/ft_putendl_fd.c
+        libft/srcs/fd/ft_putnbr_fd.c
+        libft/srcs/fd/ft_putstr_fd.c
+        libft/srcs/get_next_line/get_next_line.c
+        libft/srcs/get_next_line/get_next_line_utils.c
+        libft/srcs/list/ft_lstadd_back.c
+        libft/srcs/list/ft_lstadd_front.c
+        libft/srcs/list/ft_lstclear.c
+        libft/srcs/list/ft_lstdelone.c
+        libft/srcs/list/ft_lstiter.c
+        libft/srcs/list/ft_lstlast.c
+        libft/srcs/list/ft_lstmap.c
+        libft/srcs/list/ft_lstnew.c
+        libft/srcs/list/ft_lstsize.c
+        libft/srcs/memory/ft_bzero.c
+        libft/srcs/memory/ft_calloc.c
+        libft/srcs/memory/ft_memchr.c
+        libft/srcs/memory/ft_memcmp.c
+        libft/srcs/memory/ft_memcpy.c
+        libft/srcs/memory/ft_memmove.c
+        libft/srcs/memory/ft_memset.c
+        libft/srcs/string/ft_split.c
+        libft/srcs/string/ft_strchr.c
+        libft/srcs/string/ft_strdup.c
+        libft/srcs/string/ft_striteri.c
+        libft/srcs/string/ft_strjoin.c
+        libft/srcs/string/ft_strlcat.c
+        libft/srcs/string/ft_strlcpy.c
+        libft/srcs/string/ft_strlen.c
+        libft/srcs/string/ft_strmapi.c
+        libft/srcs/string/ft_strncmp.c
+        libft/srcs/string/ft_strnstr.c
+        libft/srcs/string/ft_strrchr.c
+        libft/srcs/string/ft_strtrim.c
+        libft/srcs/string/ft_substr.c
+        srcs/list/lst_before_last.c
+        srcs/list/lst_display_int.c
+        srcs/list/lst_index_int.c
+        srcs/list/lst_int_push.c
+        srcs/list/lst_int_rotate.c
+        srcs/list/lst_int_swap.c
+        srcs/list/lst_issort_int.c
+        srcs/list/lst_search_int.c
+        srcs/list/lstadd_back_int.c
+        srcs/list/lstadd_front_int.c
+        srcs/list/lstclear_int.c
+        srcs/list/lstlast_int.c
+        srcs/list/lstnew_int.c
+        srcs/list/lstsize_int.c
+        srcs/parsing/calc_index.c
+        srcs/parsing/check_number.c
+        srcs/parsing/error.c
+        srcs/parsing/parsing.c
+        srcs/sort/bubble_sort.c
+        srcs/sort/calc_operation.c
+        srcs/main.c srcs/sort/fast_place.c)
