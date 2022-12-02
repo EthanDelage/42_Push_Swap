@@ -21,7 +21,8 @@ size_t	count_nb_sorted(t_list_int *stack_a)
 	previous_val = stack_a->content;
 	while (stack_a)
 	{
-		if (previous_val <= stack_a->content) {
+		if (previous_val <= stack_a->content)
+		{
 			previous_val = stack_a->content;
 			count++;
 		}
@@ -88,5 +89,6 @@ void	calculate_operation(t_list_int **stack_a)
 	stack_b = NULL;
 	push_in_b(stack_a, &stack_b);
 	display_stack(*stack_a, stack_b);
+	nb_move_for_place(*stack_a, stack_b, 3);
 	lstclear_int(&stack_b);
 }

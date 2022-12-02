@@ -4,4 +4,6 @@ a.out
 .objs/
 .idea/
 CMakeLists.txt
+cmake-build-debug
+libft/libft.a
 push_swap_tester
