@@ -20,9 +20,6 @@
 # include "parsing.h"
 # include "lst_int.h"
 
-void	push_in_b(t_list_int **stack_a, t_list_int **stack_b, size_t size_a,
-			int max_not_push);
-size_t	calc_max_not_push(t_list_int **stack_a);
 void	calculate_operation(t_list_int **stack_a);
 
 #endif

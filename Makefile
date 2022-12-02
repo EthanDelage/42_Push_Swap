@@ -46,7 +46,6 @@ LIST =			lstadd_front_int.c \
 				lstnew_int.c \
 
 SORT =			bubble_sort.c \
-				first_step.c \
 				calc_operation.c \
 
 

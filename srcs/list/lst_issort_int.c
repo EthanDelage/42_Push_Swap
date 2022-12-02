@@ -21,7 +21,7 @@ int	lst_issort_int(t_list_int *start)
 	start = start->next;
 	while (start)
 	{
-		if (start->content <= previous_val)
+		if (start->content == previous_val - 1)
 			return (0);
 		previous_val = start->content;
 		start = start->next;

@@ -12,53 +12,81 @@
 #include "push_swap.h"
 #include <stdio.h>
 
-void	sort_in_b(t_list_int **stack_a, t_list_int **stack_b, size_t nb_arg)
+size_t	count_nb_sorted(t_list_int *stack_a)
 {
-	int	smallest;
-	int	biggest;
+	size_t	count;
+	int		previous_val;
 
-	smallest = nb_arg / 2 - 1;
-	biggest = nb_arg / 2;
-	while (lstsize_int(*stack_a) > 1)
+	count = 0;
+	previous_val = stack_a->content;
+	while (stack_a)
 	{
-		if ((*stack_a)->content == smallest || (*stack_a)-> content == biggest)
-		{
-			ft_putstr_fd("pa\n", 1);
-			p_one(stack_a, stack_b);
-			if ((*stack_b)->content == smallest && lstsize_int(*stack_b) > 1)
-			{
-				smallest--;
-				ft_putstr_fd("rb\n", 1);
-				r_one(stack_b);
-			}
-			else if ((*stack_b)->content == smallest)
-				smallest--;
-			else
-				biggest++;
+		if (previous_val <= stack_a->content) {
+			previous_val = stack_a->content;
+			count++;
 		}
-		ft_putstr_fd("ra\n", 1);
-		r_one(stack_a);
+		stack_a = stack_a->next;
 	}
-	ft_putstr_fd("pa\n", 1);
-	p_one(stack_a, stack_b);
-	if ((*stack_b)->content == smallest)
+	return (count);
+}
+
+int	max_sort(t_list_int *stack_a)
+{
+	size_t	max_sorted;
+	size_t	nb_sorted;
+	int		best_value;
+
+	max_sorted = 0;
+	best_value = 0;
+	while (stack_a)
 	{
-		ft_putstr_fd("rb\n", 1);
-		r_one(stack_b);
+		nb_sorted = count_nb_sorted(stack_a);
+		if (nb_sorted > max_sorted)
+		{
+			max_sorted = nb_sorted;
+			best_value = stack_a->content;
+		}
+		stack_a = stack_a->next;
+	}
+	return (best_value);
+}
+
+void	push_in_b(t_list_int **stack_a, t_list_int **stack_b)
+{
+	const size_t	nb_arg = lstsize_int(*stack_a);
+	size_t			count;
+	int				value;
+	int				find_value;
+
+	value = max_sort(*stack_a);
+	count = 0;
+	find_value = 0;
+	printf("Max_sorted = %d", value);
+	while (count < nb_arg)
+	{
+		if ((*stack_a)->content == value)
+			find_value = 1;
+		if (find_value && (*stack_a)->content >= value)
+		{
+			value = (*stack_a)->content;
+			ft_putstr_fd("ra\n", 1);
+			r_one(stack_a);
+		}
+		else
+		{
+			ft_putstr_fd("pb\n", 1);
+			p_one(stack_a, stack_b);
+		}
+		count++;
 	}
 }
 
 void	calculate_operation(t_list_int **stack_a)
 {
-	const size_t	nb_arg = lstsize_int(*stack_a);
 	t_list_int		*stack_b;
 
 	stack_b = NULL;
-	sort_in_b(stack_a, &stack_b, nb_arg);
-	while (stack_b)
-	{
-		ft_putstr_fd("pb\n", 1);
-		p_one(&stack_b, stack_a);
-	}
+	push_in_b(stack_a, &stack_b);
+	display_stack(*stack_a, stack_b);
 	lstclear_int(&stack_b);
 }
