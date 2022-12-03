@@ -26,6 +26,8 @@ typedef struct s_list_int
 }				t_list_int;
 
 t_list_int	*lstnew_int(int content);
+int			lst_min_int(t_list_int *start);
+int			lst_max_int(t_list_int *start);
 size_t		lstsize_int(t_list_int *stack);
 t_list_int	*before_last(t_list_int *stack);
 t_list_int	*lstlast_int(t_list_int *start);

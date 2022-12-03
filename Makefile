@@ -38,10 +38,12 @@ LIST =			lstadd_front_int.c \
 				lstclear_int.c \
 				lstsize_int.c \
 				lstlast_int.c \
+				lst_min_max.c \
 				lstnew_int.c \
 
 SORT =			bubble_sort.c \
 				calc_operation.c \
+				exception.c \
 
 
 PARSING =		check_number.c \

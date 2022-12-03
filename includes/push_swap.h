@@ -20,8 +20,7 @@
 # include "parsing.h"
 # include "lst_int.h"
 
+void	sort_3(t_list_int **stack_a);
 void	calculate_operation(t_list_int **stack_a);
-size_t	nb_move_for_place(t_list_int *stack_a, t_list_int *stack_b,
-			int content);
 
 #endif

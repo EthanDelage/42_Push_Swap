@@ -1,37 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   lst_min_max.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/11/27 12:57:22 by edelage           #+#    #+#             */
-/*   Updated: 2022/12/01 19:16:48 by edelage          ###   ########lyon.fr   */
+/*   Created: 2022/12/03 02:51:35 by edelage           #+#    #+#             */
+/*   Updated: 2022/12/03 02:51:36 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
-#include "push_swap.h"
+#include "lst_int.h"
 
-void	display(t_list_int *stack)
+int	lst_min_int(t_list_int *start)
 {
-	while (stack)
+	int	min;
+
+	min = start->content;
+	while (start)
 	{
-		ft_putnbr_fd(stack->content, 1);
-		ft_putchar_fd('\n', 1);
-		stack = stack->next;
+		if (start->content < min)
+			min = start->content;
+		start = start->next;
 	}
+	return (min);
 }
 
-int	main(int argc, char **argv)
+int	lst_max_int(t_list_int *start)
 {
-	t_list_int	*stack_a;
+	int	max;
 
-	if (argc == 1)
-		print_error_msg(EINVAL);
-	stack_a = parse_arg(argc, argv);
-	if (lstsize_int(stack_a) == 3)
-		sort_3(&stack_a);
-	else
-		calculate_operation(&stack_a);
-	lstclear_int(&stack_a);
-	return (0);
+	max = start->content;
+	while (start)
+	{
+		if (start->content > max)
+			max = start->content;
+		start = start->next;
+	}
+	return (max);
 }
