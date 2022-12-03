@@ -44,7 +44,10 @@ t_list_int	*conv_arg(const char *str)
 	start = NULL;
 	while (*str)
 	{
+		if (!ft_isspace(*str) && !ft_isdigit(*str))
 		number = ft_atoi(str);
+		if (number == -1 && errno == ERANGE)
+			free_for_error(&start);
 		new_elem = lstnew_int(number);
 		if (new_elem == NULL)
 			free_for_error(&start);

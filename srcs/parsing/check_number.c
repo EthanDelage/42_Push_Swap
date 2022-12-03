@@ -17,11 +17,6 @@ int	return_error(int error_code)
 	return (-1);
 }
 
-int	ft_issign(char c)
-{
-	return (c == '-' || c == '+');
-}
-
 int	check_number(const char *str)
 {
 	int		sign;

@@ -40,6 +40,7 @@ CHAR =			ft_isalpha.c \
 				ft_isspace.c \
 				ft_toupper.c \
 				ft_tolower.c \
+				ft_issign.c \
 
 CONVERT =		ft_atoi.c \
 				ft_itoa.c \

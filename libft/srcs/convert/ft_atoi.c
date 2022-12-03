@@ -9,6 +9,14 @@
 /*   Updated: 2022/11/08 16:00:54 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
+#include <errno.h>
+
+static int	return_error(int error_code)
+{
+	errno = error_code;
+	return (-1);
+}
 
 int	ft_atoi(const char *nptr)
 {
@@ -19,9 +27,9 @@ int	ft_atoi(const char *nptr)
 	index = 0;
 	sign = 1;
 	result = 0;
-	while (nptr[index] == ' ' || (nptr[index] >= 9 && nptr[index] <= 13))
+	while (ft_isspace(nptr[index]))
 		index++;
-	if (nptr[index] == '+' || nptr[index] == '-')
+	if (ft_issign(nptr[index]))
 	{
 		if (nptr[index] == '-')
 			sign = -1;
@@ -29,6 +37,8 @@ int	ft_atoi(const char *nptr)
 	}
 	while (nptr[index] >= '0' && nptr[index] <= '9')
 	{
+		if ((result * 10 + (sign * (nptr[index] - '0'))) / 10 != result)
+			return (return_error(ERANGE));
 		result = result * 10 + (nptr[index] - '0');
 		index++;
 	}
