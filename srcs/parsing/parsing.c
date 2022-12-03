@@ -44,7 +44,11 @@ t_list_int	*conv_arg(const char *str)
 	start = NULL;
 	while (*str)
 	{
-		if (!ft_isspace(*str) && !ft_isdigit(*str))
+		if (!ft_isspace(*str) && !ft_isdigit(*str) && !ft_issign(*str))
+		{
+			errno = EINVAL;
+			free_for_error(&start);
+		}
 		number = ft_atoi(str);
 		if (number == -1 && errno == ERANGE)
 			free_for_error(&start);
