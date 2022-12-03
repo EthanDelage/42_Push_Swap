@@ -31,6 +31,7 @@ LIBFT_DIR =		libft/
 # ***************************
 
 LIST =			lstadd_front_int.c \
+				lstadd_back_int.c \
 				lst_before_last.c \
 				lst_int_rotate.c \
 				lst_int_swap.c \

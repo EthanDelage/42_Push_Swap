@@ -28,6 +28,7 @@ int	main(int argc, char **argv)
 	if (argc == 1)
 		print_error_msg(EINVAL);
 	stack_a = parse_arg(argc, argv);
+	display(stack_a);
 	if (lstsize_int(stack_a) == 3)
 		sort_3(&stack_a);
 	else if (lstsize_int(stack_a) <= 7 && lstsize_int(stack_a) > 3)

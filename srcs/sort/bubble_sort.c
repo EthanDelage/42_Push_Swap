@@ -30,7 +30,7 @@ void	bubble_sort(int *array, size_t nb_elem)
 	{
 		changed = 0;
 		index = 0;
-		while (index < nb_elem - 1)
+		while (nb_elem > 0 && index < nb_elem - 1)
 		{
 			if (array[index] > array[index + 1])
 			{

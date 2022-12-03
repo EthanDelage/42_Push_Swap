@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "parsing.h"
+#include <stdio.h>
 
 int	return_error(int error_code)
 {
@@ -49,4 +50,34 @@ int	check_number(const char *str)
 	if (str[index] != '\0' || (index && (ft_issign(str[index - 1]))))
 		return (return_error(EINVAL));
 	return (result);
+}
+
+int	check_multi_number(const char *str)
+{
+	size_t	index;
+
+	index = 0;
+	while (ft_isspace(str[index]))
+		index++;
+	if (str[index] == '+' || str[index] == '-')
+		index++;
+	while (ft_isdigit(str[index]))
+		index++;
+	if (str[index])
+		return ((int) index);
+	return (0);
+}
+
+int	next_number(const char *str)
+{
+	size_t	index;
+
+	index = 0;
+	while (ft_isspace(str[index]))
+		index++;
+	if (str[index] == '+' || str[index] == '-')
+		index++;
+	while (ft_isdigit(str[index]))
+		index++;
+	return (index);
 }

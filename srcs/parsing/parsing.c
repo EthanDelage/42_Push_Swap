@@ -13,12 +13,6 @@
 
 #include <stdio.h>
 
-static void	free_for_error(t_list_int **start)
-{
-	lstclear_int(start);
-	print_error_msg(errno);
-}
-
 static int	check_one(t_list_int *start, int to_comp)
 {
 	while (start)
@@ -43,6 +37,27 @@ static int	check_dup(t_list_int *start)
 	return (0);
 }
 
+t_list_int	*conv_arg(const char *str)
+{
+	t_list_int	*start;
+	t_list_int	*new_elem;
+	size_t		index;
+	int			number;
+
+	index = 0;
+	start = NULL;
+	while (*str)
+	{
+		number = ft_atoi(str);
+		new_elem = lstnew_int(number);
+		if (new_elem == NULL)
+			free_for_error(&start);
+		lstadd_back_int(&start, new_elem);
+		str += next_number(str);
+	}
+	return (start);
+}
+
 static t_list_int	*init_a_stack(int argc, char **argv)
 {
 	int			number;
@@ -50,6 +65,11 @@ static t_list_int	*init_a_stack(int argc, char **argv)
 	t_list_int	*new_elem;
 
 	start = NULL;
+	if (argc == 2)
+	{
+		start = conv_arg(argv[1]);
+		argc = 1;
+	}
 	while (argc != 1)
 	{
 		number = check_number(argv[argc - 1]);
