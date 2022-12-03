@@ -6,7 +6,7 @@
 #    By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/27 11:49:53 by edelage           #+#    #+#              #
-#    Updated: 2022/12/01 18:58:16 by edelage          ###   ########lyon.fr    #
+#    Updated: 2022/12/03 18:08:28 by edelage          ###   ########lyon.fr    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,7 +73,7 @@ LIBFT =			$(LIBFT_DIR)libft.a
 # Compilation
 # ***************************
 
-FLAGS =			-Wall -Wextra -Werror -g
+FLAGS =			-Wall -Wextra -Werror
 
 DEP_FLAGS =		-MMD -MP
 
