@@ -30,6 +30,8 @@ int	main(int argc, char **argv)
 	stack_a = parse_arg(argc, argv);
 	if (lstsize_int(stack_a) == 3)
 		sort_3(&stack_a);
+	else if (lstsize_int(stack_a) <= 7 && lstsize_int(stack_a) > 3)
+		sort_7(&stack_a);
 	else
 		calculate_operation(&stack_a);
 	lstclear_int(&stack_a);

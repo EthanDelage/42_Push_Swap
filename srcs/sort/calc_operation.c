@@ -37,7 +37,7 @@ void	sort_index(t_list_int **stack_a, t_list_int **stack_b
 	count = 0;
 	while (count < total_size)
 	{
-		if (((*stack_a)->content & 0b1) == 1)
+		if (((*stack_a)->content & 0b1) == 0)
 		{
 			ft_putstr_fd("pb\n", 1);
 			p_one(stack_a, stack_b);
@@ -74,5 +74,4 @@ void	calculate_operation(t_list_int **stack_a)
 		sort_index(stack_a, &stack_b, nb_arg);
 		right_shift(*stack_a);
 	}
-	lstclear_int(&stack_b);
 }

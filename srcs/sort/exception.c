@@ -41,3 +41,43 @@ void	sort_3(t_list_int **stack_a)
 		sort_3(stack_a);
 	}
 }
+
+void	sort_elem(t_list_int **stack_a, t_list_int **stack_b)
+{
+	int	val_top_a;
+
+	val_top_a = (*stack_a)->content;
+	while ((*stack_b)->content != val_top_a - 1)
+	{
+		ft_putstr_fd("rb\n", 1);
+		r_one(stack_b);
+	}
+	ft_putstr_fd("pa\n", 1);
+	p_one(stack_b, stack_a);
+}
+
+void	sort_7(t_list_int **stack_a)
+{
+	const size_t	nb_elem = lstsize_int(*stack_a);
+	t_list_int		*stack_b;
+
+	stack_b = NULL;
+	while (lstsize_int(*stack_a) != 3)
+	{
+		if ((size_t)(*stack_a)->content != nb_elem - 1
+			&& (size_t)(*stack_a)->content != nb_elem - 2
+			&& (size_t)(*stack_a)->content != nb_elem - 3)
+		{
+			ft_putstr_fd("pb\n", 1);
+			p_one(stack_a, &stack_b);
+		}
+		else
+		{
+			ft_putstr_fd("ra\n", 1);
+			r_one(stack_a);
+		}
+	}
+	sort_3(stack_a);
+	while (stack_b)
+		sort_elem(stack_a, &stack_b);
+}

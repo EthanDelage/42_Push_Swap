@@ -21,6 +21,7 @@
 # include "lst_int.h"
 
 void	sort_3(t_list_int **stack_a);
+void	sort_7(t_list_int **stack_a);
 void	calculate_operation(t_list_int **stack_a);
 
 #endif
