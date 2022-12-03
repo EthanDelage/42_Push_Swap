@@ -11,6 +11,13 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
+void	swap_sort_3(t_list_int **stack_a)
+{
+	ft_putstr_fd("sa\n", 1);
+	s_one(stack_a);
+	sort_3(stack_a);
+}
+
 void	sort_3(t_list_int **stack_a)
 {
 	int	min;
@@ -35,11 +42,7 @@ void	sort_3(t_list_int **stack_a)
 	else if ((first_val == min && second_val == max)
 		|| (second_val == min && first_val != max)
 		|| (first_val == max && second_val != min))
-	{
-		ft_putstr_fd("sa\n", 1);
-		s_one(stack_a);
-		sort_3(stack_a);
-	}
+		swap_sort_3(stack_a);
 }
 
 void	sort_elem(t_list_int **stack_a, t_list_int **stack_b)
