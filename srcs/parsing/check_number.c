@@ -10,7 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 #include "parsing.h"
-#include <stdio.h>
 
 int	return_error(int error_code)
 {
