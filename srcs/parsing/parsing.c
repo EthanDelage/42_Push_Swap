@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 #include "parsing.h"
 
-#include <stdio.h>
-
 static int	check_one(t_list_int *start, int to_comp)
 {
 	while (start)
@@ -41,10 +39,8 @@ t_list_int	*conv_arg(const char *str)
 {
 	t_list_int	*start;
 	t_list_int	*new_elem;
-	size_t		index;
 	int			number;
 
-	index = 0;
 	start = NULL;
 	while (*str)
 	{
