@@ -26,7 +26,7 @@ int	main(int argc, char **argv)
 	t_list_int	*stack_a;
 
 	if (argc == 1)
-		print_error_msg(EINVAL);
+		return (0);
 	stack_a = parse_arg(argc, argv);
 	if (lst_issort_int(stack_a))
 		return (0);
