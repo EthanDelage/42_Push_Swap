@@ -39,8 +39,8 @@ int	ft_atoi(const char *nptr)
 	{
 		if ((result * 10 + (sign * (nptr[index] - '0'))) / 10 != result)
 			return (return_error(ERANGE));
-		result = result * 10 + (nptr[index] - '0');
+		result = result * 10 + sign * (nptr[index] - '0');
 		index++;
 	}
-	return (result * sign);
+	return (result);
 }
