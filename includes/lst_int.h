@@ -32,6 +32,7 @@ size_t		lstsize_int(t_list_int *stack);
 t_list_int	*before_last(t_list_int *stack);
 t_list_int	*lstlast_int(t_list_int *start);
 void		lstclear_int(t_list_int **start);
+int			lst_issort_int(t_list_int *stack_a);
 void		lstadd_back_int(t_list_int **last, t_list_int *new_elem);
 void		lstadd_front_int(t_list_int **start, t_list_int *new_elem);
 
