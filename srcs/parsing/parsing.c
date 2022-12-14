@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:52:33 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/29 22:04:00 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 23:08:05 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 #include "parsing.h"
@@ -50,7 +50,7 @@ t_list_int	*conv_arg(const char *str)
 			free_for_error(&start);
 		}
 		number = ft_atoi(str);
-		if (number == -1 && errno == ERANGE)
+		if (number == -1 && (errno == ERANGE || errno == EINVAL))
 			free_for_error(&start);
 		new_elem = lstnew_int(number);
 		if (new_elem == NULL)

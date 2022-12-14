@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/05 16:29:09 by edelage           #+#    #+#             */
-/*   Updated: 2022/11/08 16:00:54 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/12/14 23:06:14 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -42,5 +42,7 @@ int	ft_atoi(const char *nptr)
 		result = result * 10 + sign * (nptr[index] - '0');
 		index++;
 	}
+	if (nptr[index] != '\0' && !ft_isspace(nptr[index]))
+		return (return_error(EINVAL));
 	return (result);
 }
