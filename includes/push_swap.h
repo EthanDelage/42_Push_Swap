@@ -6,7 +6,7 @@
 /*   By: edelage <edelage@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/27 12:07:58 by edelage           #+#    #+#             */
-/*   Updated: 2022/12/01 13:46:36 by edelage          ###   ########lyon.fr   */
+/*   Updated: 2022/12/23 15:38:40 by edelage          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@
 void	sort_3(t_list_int **stack_a);
 void	sort_7(t_list_int **stack_a);
 void	calculate_operation(t_list_int **stack_a);
+int		calculate_best_sort(t_list_int *stack_a);
 
 #endif

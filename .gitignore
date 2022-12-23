@@ -1,6 +1,7 @@
 push_swap
 .*.swp
 a.out
+.build/
 .objs/
 .idea/
 libft/libft.a
