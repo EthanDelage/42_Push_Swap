@@ -23,6 +23,7 @@
 void	sort_3(t_list_int **stack_a);
 void	sort_7(t_list_int **stack_a);
 void	calculate_operation(t_list_int **stack_a);
-int		calculate_best_sort(t_list_int *stack_a);
+
+t_list_int *sort_into_chunk(t_list_int **stack_a);
 
 #endif

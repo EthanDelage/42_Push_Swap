@@ -93,6 +93,7 @@ SRCS =			$(addprefix fd/, $(FD)) \
 				$(addprefix string/, $(STRING)) \
 				$(addprefix convert/, $(CONVERT)) \
 				$(addprefix get_next_line/, $(GNL)) \
+				math.c \
 
 HEADER =		$(INC_DIR)libft.h \
 				$(INC_DIR)get_next_line.h \

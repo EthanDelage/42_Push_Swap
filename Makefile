@@ -14,9 +14,9 @@
 #  Folders
 # ***************************
 
-INC_DIR =			includes/
+INC_DIR =			inc/
 
-SRC_DIR =			srcs/
+SRC_DIR =			src/
 
 BUILD_DIR =			.build/
 
@@ -42,11 +42,12 @@ LIST =				lstadd_front_int.c \
 					lstlast_int.c \
 					lst_min_max.c \
 					lstnew_int.c \
+					lst_get_index.c \
 
 SORT =				exception.c \
 					bubble_sort.c \
+					sort_into_chunk.c \
 					calc_operation.c \
-					best_sort_first.c \
 
 
 PARSING =			check_number.c \
