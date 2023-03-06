@@ -28,7 +28,7 @@ void	calculate_operation(t_list_int **stack_a)
 	display(*stack_a);
 	printf("b\n");
 	display(stack_b);
-	printf("nb_move: %zu\n", nb_move_to_sort(*stack_a, stack_b, 0, 2));
+	printf("nb_move: %zu\n", nb_move_to_sort(*stack_a, stack_b, 0, 10));
 	(void) stack_b;
 }
 //

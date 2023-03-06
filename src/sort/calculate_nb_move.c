@@ -69,6 +69,7 @@ static size_t	calculate_rrr(size_t size_a, size_t size_b, size_t index_val, size
 {
 	size_t	nb_move;
 
+	printf("idx insert: %zu\n", index_where_insert);
 	nb_move = ft_min((int) (size_a - index_where_insert), (int) (size_b - index_val));
 	printf("test: %zu\n", nb_move);
 	nb_move += ft_abs((int) (size_a - index_where_insert - (size_b - index_val)));
