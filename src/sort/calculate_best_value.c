@@ -33,6 +33,7 @@ int	get_best_val_to_sort(t_list_int *stack_a, t_list_int *stack_b, size_t index_
 		}
 		current = current->next;
 	}
+	return (best_value);
 }
 
 

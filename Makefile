@@ -48,6 +48,7 @@ SORT =				exception.c \
 					bubble_sort.c \
 					sort_into_chunk.c \
 					calc_operation.c \
+					calculate_nb_move.c \
 
 
 PARSING =			check_number.c \
