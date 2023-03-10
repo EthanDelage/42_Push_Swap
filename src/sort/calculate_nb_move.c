@@ -11,30 +11,32 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-static size_t	calculate_rr(size_t index_val, size_t index_where_insert);
-static size_t	calculate_rrr(size_t size_a, size_t size_b, size_t index_val, size_t index_where_insert);
 static size_t	get_index_to_insert(t_list_int *stack_a, size_t index_min, int value);
 
-
-#include <stdio.h>
 size_t	nb_move_to_sort(t_list_int *stack_a, t_list_int *stack_b, size_t index_min, int value)
 {
-	const size_t	size_a = lstsize_int(stack_a);
-	const size_t	size_b = lstsize_int(stack_b);
-	const size_t	index_val = lst_get_index(stack_b, value);
-	const size_t	index_where_insert = get_index_to_insert(stack_a, index_min, value);
+	t_move			move;
 	size_t			nb_move;
 
-	printf("index_min: %zu\nindex to insert: %zu\n", index_min, index_where_insert);
-	nb_move = calculate_rr(index_val, index_where_insert);
-	printf("nb_move with rr: %zu\n", nb_move);
-	if (calculate_rrr(size_a, size_b, index_val, index_where_insert) < nb_move)
-	{
-		nb_move = calculate_rrr(size_a, size_b, index_val, index_where_insert);
-		printf("nb_move with rrr: %zu\n", nb_move);
-	}
-	/*calculate nb_move with only ra rb rra rrb*/
+	move.ra = get_index_to_insert(stack_a, index_min, value);
+	move.rb = lst_get_index(stack_b, value);
+	move.rra = lstsize_int(stack_a) - move.ra;
+	move.rrb = lstsize_int(stack_b) - move.rb;
+	nb_move = ft_min(ft_max(move.ra, move.rb), ft_max(move.rra, move.rrb));
+	nb_move = ft_min(nb_move, ft_min(move.ra, move.rra) + ft_min(move.rb, move.rrb));
+	//maybe check with ra and rrb or rra and rb
 	return (nb_move);
+}
+
+t_move	get_move_of_value(t_list_int *stack_a, t_list_int *stack_b, size_t index_min, int value)
+{
+	t_move			move;
+
+	move.ra = get_index_to_insert(stack_a, index_min, value);
+	move.rb = lst_get_index(stack_b, value);
+	move.rra = lstsize_int(stack_a) - move.ra;
+	move.rrb = lstsize_int(stack_b) - move.rb;
+	return (move);
 }
 
 static size_t	get_index_to_insert(t_list_int *stack_a, size_t index_min, int value)
@@ -54,24 +56,4 @@ static size_t	get_index_to_insert(t_list_int *stack_a, size_t index_min, int val
 		stack_a = stack_a->next;
 	}
 	return (index);
-}
-
-static size_t	calculate_rr(size_t index_val, size_t index_where_insert)
-{
-	size_t	nb_move;
-
-	nb_move = ft_min((int) index_val, (int) index_where_insert);
-	nb_move += ft_abs((int) index_val - (int) index_where_insert);
-	return (nb_move + 1);
-}
-
-static size_t	calculate_rrr(size_t size_a, size_t size_b, size_t index_val, size_t index_where_insert)
-{
-	size_t	nb_move;
-
-	printf("idx insert: %zu\n", index_where_insert);
-	nb_move = ft_min((int) (size_a - index_where_insert), (int) (size_b - index_val));
-	printf("test: %zu\n", nb_move);
-	nb_move += ft_abs((int) (size_a - index_where_insert - (size_b - index_val)));
-	return (nb_move + 1);
 }

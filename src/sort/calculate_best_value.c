@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-size_t	nb_move_to_sort(t_list_int *stack_a, t_list_int *stack_b, size_t index_min, int value);
+size_t nb_move_to_sort(t_list_int *stack_a, t_list_int *stack_b, size_t index_min, int value);
 
 int	get_best_val_to_sort(t_list_int *stack_a, t_list_int *stack_b, size_t index_min)
 {

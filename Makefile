@@ -49,6 +49,7 @@ SORT =				exception.c \
 					sort_into_chunk.c \
 					calc_operation.c \
 					calculate_nb_move.c \
+					calculate_best_value.c \
 
 
 PARSING =			check_number.c \

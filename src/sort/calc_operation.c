@@ -11,28 +11,161 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-static void	sort_one(t_list_int **stack_a, t_list_int **stack_b, size_t index_min);
-static int	get_best_val_to_sort(t_list_int *stack_a, t_list_int *stack_b, size_t index_min);
+static void	insert_in_sorted_list(t_list_int **stack_a, t_list_int **stack_b, size_t index_min);
+int	get_best_val_to_sort(t_list_int *stack_a, t_list_int *stack_b, size_t index_min);
+void	sort_with_rr(t_list_int **stack_a, t_list_int **stack_b, t_move move);
+void	sort_with_rrr(t_list_int **stack_a, t_list_int **stack_b, t_move move);
+void	sort_with_rotate(t_list_int **stack_a, t_list_int **stack_b, t_move move);
+size_t	get_index_min(t_list_int *stack_a);
 
 size_t	nb_move_to_sort(t_list_int *stack_a, t_list_int *stack_b, size_t index_min, int value);
+t_move	get_move_of_value(t_list_int *stack_a, t_list_int *stack_b, size_t index_min, int value);
 void	display(t_list_int *stack);
 
 #include <stdio.h>
 void	calculate_operation(t_list_int **stack_a)
 {
 	t_list_int		*stack_b;
+	size_t			index_min;
 
 	stack_b = sort_into_chunk(stack_a);
 	sort_3(stack_a);
-	printf("a\n");
-	display(*stack_a);
-	printf("b\n");
-	display(stack_b);
-	printf("nb_move: %zu\n", nb_move_to_sort(*stack_a, stack_b, 0, 10));
-	(void) stack_b;
+	for (int i = 0; i < 2; ++i)
+	{
+		index_min = get_index_min(*stack_a);
+		insert_in_sorted_list(stack_a, &stack_b, index_min);
+	}
 }
-//
-//static void	sort_one(t_list_int **stack_a, t_list_int **stack_b, size_t index_min)
-//{
-//	const int value = get_best_val_to_sort(*stack_a, *stack_b, index_min);
-//}
+
+static void	insert_in_sorted_list(t_list_int **stack_a, t_list_int **stack_b, size_t index_min)
+{
+	const int		value = get_best_val_to_sort(*stack_a, *stack_b, index_min);
+	const size_t	nb_move = nb_move_to_sort(*stack_a, *stack_b, index_min, value);
+	const t_move	move = get_move_of_value(*stack_a, *stack_b, index_min, value);
+
+	if (ft_max((int) move.ra, (int) move.rb) == (int) nb_move)
+		sort_with_rr(stack_a, stack_b, move);
+	else if (ft_max((int) move.rrb, (int) move.rra) == (int) nb_move)
+		sort_with_rrr(stack_a, stack_b, move);
+	else
+		sort_with_rotate(stack_a, stack_b, move);
+}
+
+void	sort_with_rr(t_list_int **stack_a, t_list_int **stack_b, t_move move)
+{
+	size_t	count;
+
+	count = 0;
+	while (count != move.rb && count != move.ra)
+	{
+		r_one(stack_a);
+		r_one(stack_b);
+		ft_putstr_fd("rr\n", STDOUT_FILENO);
+		count++;
+	}
+	while (count < move.rb)
+	{
+		r_one(stack_b);
+		ft_putstr_fd("rb\n", STDOUT_FILENO);
+		count++;
+	}
+	while (count < move.ra)
+	{
+		r_one(stack_a);
+		ft_putstr_fd("ra\n", STDOUT_FILENO);
+		count++;
+	}
+	p_one(stack_b, stack_a);
+	ft_putstr_fd("pa\n", STDOUT_FILENO);
+}
+
+void	sort_with_rrr(t_list_int **stack_a, t_list_int **stack_b, t_move move)
+{
+	size_t	count;
+
+	count = 0;
+	while (count != move.rrb && count != move.rra)
+	{
+		rr_one(stack_a);
+		rr_one(stack_b);
+		ft_putstr_fd("rrr\n", STDOUT_FILENO);
+		count++;
+	}
+	while (count < move.rrb)
+	{
+		r_one(stack_b);
+		ft_putstr_fd("rrb\n", STDOUT_FILENO);
+		count++;
+	}
+	while (count < move.ra)
+	{
+		r_one(stack_a);
+		ft_putstr_fd("rra\n", STDOUT_FILENO);
+		count++;
+	}
+	p_one(stack_b, stack_a);
+	ft_putstr_fd("pa\n", STDOUT_FILENO);
+}
+
+void	sort_with_rotate(t_list_int **stack_a, t_list_int **stack_b, t_move move)
+{
+	size_t	count;
+
+	count = 0;
+	if (move.ra > move.rra)
+	{
+		while (count < move.rra)
+		{
+			rr_one(stack_a);
+			ft_putstr_fd("rra\n", STDOUT_FILENO);
+			count++;
+		}
+	}
+	else
+	{
+		while (count < move.ra)
+		{
+			r_one(stack_a);
+			ft_putstr_fd("ra\n", STDOUT_FILENO);
+			count++;
+		}
+	}
+	count = 0;
+	if (move.rb > move.rrb)
+	{
+		while (count < move.rrb)
+		{
+			rr_one(stack_b);
+			ft_putstr_fd("rrb\n", STDOUT_FILENO);
+			count++;
+		}
+	}
+	else
+	{
+		while (count < move.rb)
+		{
+			r_one(stack_b);
+			ft_putstr_fd("rb\n", STDOUT_FILENO);
+			count++;
+		}
+	}
+	p_one(stack_b, stack_a);
+	ft_putstr_fd("pa\n", STDOUT_FILENO);
+}
+
+size_t	get_index_min(t_list_int *stack_a)
+{
+	int 	min;
+	size_t	count;
+
+	min = stack_a->content;
+	count = 0;
+	while (stack_a)
+	{
+		if (min > stack_a->content)
+			min = stack_a->content;
+		stack_a = stack_a->next;
+		count++;
+	}
+	return (count);
+}
