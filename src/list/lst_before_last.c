@@ -13,14 +13,13 @@
 
 t_list_int	*before_last(t_list_int *stack)
 {
-	t_list_int	*elem_before;
-
 	if (!stack)
 		return (NULL);
-	while (stack->next)
+	if (!stack->next)
+		return (stack);
+	while (stack->next->next)
 	{
-		elem_before = stack;
 		stack = stack->next;
 	}
-	return (elem_before);
+	return (stack);
 }

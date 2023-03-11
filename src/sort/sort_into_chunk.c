@@ -39,7 +39,7 @@ t_list_int *sort_into_chunk(t_list_int **stack_a)
 			move_to_first_chunk(stack_a);
 		count++;
 	}
-	while (lstsize_int(*stack_a) != 3)
+	while (lstsize_int(*stack_a) > 3)
 	{
 		p_one(stack_a, &stack_b);
 		write(STDOUT_FILENO, "pb\n", 3);

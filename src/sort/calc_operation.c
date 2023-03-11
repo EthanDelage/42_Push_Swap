@@ -18,22 +18,42 @@ void	sort_with_rrr(t_list_int **stack_a, t_list_int **stack_b, t_move move);
 void	sort_with_rotate(t_list_int **stack_a, t_list_int **stack_b, t_move move);
 size_t	get_index_min(t_list_int *stack_a);
 
+size_t	get_index_to_insert(t_list_int *stack_a, size_t index_min, int value);
 size_t	nb_move_to_sort(t_list_int *stack_a, t_list_int *stack_b, size_t index_min, int value);
 t_move	get_move_of_value(t_list_int *stack_a, t_list_int *stack_b, size_t index_min, int value);
 void	display(t_list_int *stack);
+void	display_both(t_list_int *stack_a, t_list_int *stack_b);
 
 #include <stdio.h>
 void	calculate_operation(t_list_int **stack_a)
 {
 	t_list_int		*stack_b;
 	size_t			index_min;
+	size_t			lst_size = 3;
 
 	stack_b = sort_into_chunk(stack_a);
 	sort_3(stack_a);
-	for (int i = 0; i < 2; ++i)
+	while (stack_b)
 	{
 		index_min = get_index_min(*stack_a);
 		insert_in_sorted_list(stack_a, &stack_b, index_min);
+		lst_size++;
+	}
+	if (lst_get_index(*stack_a, 0) < lstsize_int(*stack_a) / 2)
+	{
+		while ((*stack_a)->content != 0)
+		{
+			r_one(stack_a);
+			ft_putstr_fd("ra\n", 1);
+		}
+	}
+	else
+	{
+		while ((*stack_a)->content != 0)
+		{
+			rr_one(stack_a);
+			ft_putstr_fd("rra\n", 1);
+		}
 	}
 }
 
@@ -93,13 +113,13 @@ void	sort_with_rrr(t_list_int **stack_a, t_list_int **stack_b, t_move move)
 	}
 	while (count < move.rrb)
 	{
-		r_one(stack_b);
+		rr_one(stack_b);
 		ft_putstr_fd("rrb\n", STDOUT_FILENO);
 		count++;
 	}
-	while (count < move.ra)
+	while (count < move.rra)
 	{
-		r_one(stack_a);
+		rr_one(stack_a);
 		ft_putstr_fd("rra\n", STDOUT_FILENO);
 		count++;
 	}
@@ -156,16 +176,21 @@ void	sort_with_rotate(t_list_int **stack_a, t_list_int **stack_b, t_move move)
 size_t	get_index_min(t_list_int *stack_a)
 {
 	int 	min;
+	size_t	index;
 	size_t	count;
 
 	min = stack_a->content;
+	index = 0;
 	count = 0;
 	while (stack_a)
 	{
 		if (min > stack_a->content)
+		{
 			min = stack_a->content;
+			index = count;
+		}
 		stack_a = stack_a->next;
 		count++;
 	}
-	return (count);
+	return (index);
 }

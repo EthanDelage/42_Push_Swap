@@ -26,7 +26,7 @@ int	get_best_val_to_sort(t_list_int *stack_a, t_list_int *stack_b, size_t index_
 	while (current)
 	{
 		nb_move = nb_move_to_sort(stack_a, stack_b, index_min, current->content);
-		if (nb_move > best_nb_move)
+		if (nb_move < best_nb_move)
 		{
 			best_value = current->content;
 			best_nb_move = nb_move;

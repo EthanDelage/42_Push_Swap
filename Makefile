@@ -78,7 +78,7 @@ LIBFT =				$(LIBFT_DIR)libft.a
 # Compilation
 # ***************************
 
-FLAGS =				-Wall -Wextra -Werror
+FLAGS =				#-Wall -Wextra -Werror
 
 DEP_FLAGS =			-MMD -MP
 
