@@ -28,10 +28,21 @@ typedef struct s_move
 	size_t	rrb;
 }	t_move;
 
-void	sort_3(t_list_int **stack_a);
-void	sort_7(t_list_int **stack_a);
-void	calculate_operation(t_list_int **stack_a);
+void		sort_3(t_list_int **stack_a);
+void		sort_7(t_list_int **stack_a);
+void		calculate_operation(t_list_int **stack_a);
 
-t_list_int *sort_into_chunk(t_list_int **stack_a);
+t_list_int	*sort_into_chunk(t_list_int **stack_a);
+size_t		nb_move_to_sort(t_list_int *stack_a, t_list_int *stack_b,
+				int value);
+t_move		get_move_of_value(t_list_int *stack_a, t_list_int *stack_b,
+				int value);
+int			get_best_val_to_sort(t_list_int *stack_a, t_list_int *stack_b);
+void		sort_with_rr(t_list_int **stack_a, t_list_int **stack_b,
+				t_move move);
+void		sort_with_rrr(t_list_int **stack_a, t_list_int **stack_b,
+				t_move move);
+void		sort_with_rotate(t_list_int **stack_a, t_list_int **stack_b,
+				t_move move);
 
 #endif

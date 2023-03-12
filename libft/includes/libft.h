@@ -85,8 +85,8 @@ void	*ft_memchr(const void *s, int c, size_t n);
 int		ft_atoi(const char *nptr);
 char	*ft_itoa(int n);
 
-int	ft_min(int a, int b);
-int	ft_max(int a, int b);
-int	ft_abs(int a);
+size_t	ft_max(size_t a, size_t b);
+size_t	ft_min(size_t a, size_t b);
+int		ft_abs(int a);
 
 #endif

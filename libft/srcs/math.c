@@ -9,15 +9,16 @@
 /*   Updated: 2023/03/04 00:00:00 by edelage          ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
+#include <sys/types.h>
 
-int	ft_min(int a, int b)
+size_t	ft_min(size_t a, size_t b)
 {
 	if (a > b)
 		return (b);
 	return (a);
 }
 
-int	ft_max(int a, int b)
+size_t	ft_max(size_t a, size_t b)
 {
 	if (a > b)
 		return (a);

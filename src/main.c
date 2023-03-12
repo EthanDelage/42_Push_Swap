@@ -11,23 +11,6 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void	display(t_list_int *stack)
-{
-	while (stack)
-	{
-		ft_putnbr_fd(stack->content, 1);
-		ft_putchar_fd(' ', 1);
-		stack = stack->next;
-	}
-	ft_putchar_fd('\n', 1);
-}
-
-void	display_both(t_list_int *stack_a, t_list_int *stack_b)
-{
-	display(stack_a);
-	display(stack_b);
-}
-
 int	main(int argc, char **argv)
 {
 	t_list_int	*stack_a;

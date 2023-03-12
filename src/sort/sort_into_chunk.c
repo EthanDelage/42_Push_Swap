@@ -18,7 +18,7 @@ static void	move_to_first_chunk(t_list_int **stack_a);
 static void	move_to_second_chunk(t_list_int **stack_a, t_list_int **stack_b);
 static void	move_to_third_chunk(t_list_int **stack_a, t_list_int **stack_b);
 
-t_list_int *sort_into_chunk(t_list_int **stack_a)
+t_list_int	*sort_into_chunk(t_list_int **stack_a)
 {
 	t_list_int	*stack_b;
 	size_t		nb_elem;

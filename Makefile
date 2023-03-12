@@ -47,6 +47,7 @@ LIST =				lstadd_front_int.c \
 SORT =				exception.c \
 					bubble_sort.c \
 					sort_into_chunk.c \
+					sort_with_rotate.c \
 					calc_operation.c \
 					calculate_nb_move.c \
 					calculate_best_value.c \
