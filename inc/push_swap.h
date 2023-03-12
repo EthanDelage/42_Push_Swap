@@ -16,7 +16,7 @@
 # include <errno.h>
 # include <stdlib.h>
 
-# include "../libft/includes/libft.h"
+# include "libft.h"
 # include "parsing.h"
 # include "lst_int.h"
 

@@ -72,6 +72,7 @@ MEMORY =		ft_memset.c \
 				ft_calloc.c \
 
 STRING =		ft_strlen.c \
+				ft_strcmp.c \
 				ft_strlcpy.c \
 				ft_strlcat.c \
 				ft_strchr.c \

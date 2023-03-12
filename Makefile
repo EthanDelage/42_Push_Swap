@@ -30,46 +30,53 @@ LIBFT_DIR =			libft/
 #  Files
 # ***************************
 
-LIST =				lstadd_front_int.c \
-					lstadd_back_int.c \
-					lst_before_last.c \
-					lst_issort_int.c \
-					lst_int_rotate.c \
-					lst_int_swap.c \
-					lst_int_push.c \
-					lstclear_int.c \
-					lstsize_int.c \
-					lstlast_int.c \
-					lst_min_max.c \
-					lstnew_int.c \
-					lst_get_index.c \
+LIST =				list/lstadd_front_int.c \
+					list/lstadd_back_int.c \
+					list/lst_before_last.c \
+					list/lst_issort_int.c \
+					list/lst_int_rotate.c \
+					list/lst_int_swap.c \
+					list/lst_int_push.c \
+					list/lstclear_int.c \
+					list/lstsize_int.c \
+					list/lstlast_int.c \
+					list/lst_min_max.c \
+					list/lstnew_int.c \
+					list/lst_get_index.c \
 
-SORT =				exception.c \
-					bubble_sort.c \
-					sort_into_chunk.c \
-					sort_with_rotate.c \
-					calc_operation.c \
-					calculate_nb_move.c \
-					calculate_best_value.c \
+SORT =				sort/exception.c \
+					sort/bubble_sort.c \
+					sort/sort_into_chunk.c \
+					sort/sort_with_rotate.c \
+					sort/calc_operation.c \
+					sort/calculate_nb_move.c \
+					sort/calculate_best_value.c \
 
 
-PARSING =			check_number.c \
-					calc_index.c \
-					parsing.c \
-					error.c \
+PARSING =			parsing/check_number.c \
+					parsing/calc_index.c \
+					parsing/parsing.c \
+					parsing/error.c \
 
-SRCS =				$(addprefix parsing/, $(PARSING)) \
-					$(addprefix sort/, $(SORT)) \
-					$(addprefix list/, $(LIST)) \
+SRCS =				$(PARSING) \
+					$(SORT) \
+					$(LIST) \
 					main.c \
 
-HEADER =			$(addprefix $(INC_DIR), push_swap.h \
-											list.h \
-											struct.h)
+SRCS_BONUS =		$(PARSING) \
+					$(LIST) \
+					checker/checker.c \
+					checker/get_instruction.c \
+					checker/movement.c \
+					checker/rotate.c \
+					checker/reverse_rotate.c \
+
+OBJS_BONUS =		$(addprefix $(BUILD_DIR), $(SRCS_BONUS:.c=.o))
 
 OBJS =				$(addprefix $(BUILD_DIR), $(SRCS:.c=.o))
 
-DEPS =				$(OBJS:.o=.d)
+DEPS =				$(OBJS:.o=.d) \
+					$(OBJS_BONUS:.o=.d) \
 
 NAME =				push_swap
 
@@ -79,7 +86,7 @@ LIBFT =				$(LIBFT_DIR)libft.a
 # Compilation
 # ***************************
 
-FLAGS =				#-Wall -Wextra -Werror
+FLAGS =				-Wall -Wextra -Werror
 
 DEP_FLAGS =			-MMD -MP
 
@@ -92,34 +99,37 @@ MKDIR =			 	mkdir -p
 # ***************************
 # Rules
 # ***************************
+.PHONY:				all
+all:				$(NAME)
 
-all:				lib
-					$(MAKE) $(NAME)
+$(NAME):			$(LIBFT) $(OBJS)
+					$(CC) $(FLAGS) $(OBJS) -o $@ $(LIBFT)
 
-$(NAME):			$(BUILD_DIR) $(OBJS)
-					$(CC) $(FLAGS) -I $(INC_DIR) $(OBJS) -o $@ $(LIBFT)
+bonus:				$(LIBFT) $(OBJS_BONUS)
+					$(CC) $(FLAGS) $(LIBFT) -I $(INC_DIR) $(OBJS_BONUS) -o checker
 
 -include			$(DEPS)
 
 $(BUILD_DIR)%.o:	$(SRC_DIR)%.c
-					$(CC) $(FLAGS) $(DEP_FLAGS) -I $(INC_DIR) -c $< -o $@
+					mkdir -p $(shell dirname $@)
+					$(CC) $(FLAGS) $(DEP_FLAGS) -I $(INC_DIR) -I $(LIBFT_DIR)includes -c $< -o $@
 
-$(BUILD_DIR):
-					$(MKDIR) $(addprefix $(BUILD_DIR), $(DIR))
-
-lib:
+$(LIBFT):			FORCE
 					$(MAKE) -j -C $(LIBFT_DIR)
 
+.PHONY:				FORCE
+FORCE:
+
+.PHONY:				clean
 clean:
-					$(RM) $(OBJS)
-					$(RM) $(DEPS)
+					$(RM) $(OBJS) $(OBJS_BONUS) $(DEPS)
 					$(MAKE) clean -C $(LIBFT_DIR)
 
+.PHONY:				fclean
 fclean:				clean
-					$(RM) $(NAME)
+					$(RM) $(NAME) bonus
 					$(MAKE) fclean -C $(LIBFT_DIR)
 
+.PHONY:				re
 re:					fclean
 					$(MAKE) all
-
-.PHONY:				all clean fclean re lib
