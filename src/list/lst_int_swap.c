@@ -15,6 +15,8 @@ void	s_one(t_list_int **stack)
 {
 	t_list_int	*tmp;
 
+	if ((*stack) == NULL || (*stack)->next == NULL)
+		return ;
 	tmp = (*stack)->next;
 	(*stack)->next = tmp->next;
 	tmp->next = *stack;

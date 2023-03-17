@@ -23,8 +23,14 @@ void	rb(t_list_int **stack_a, t_list_int **stack_b)
 	r_one(stack_b);
 }
 
-void	rr(t_list_int **stack_a, t_list_int **stack_b)
+void	rra(t_list_int **stack_a, t_list_int **stack_b)
 {
-	r_one(stack_a);
-	r_one(stack_b);
+	(void) stack_b;
+	rr_one(stack_a);
+}
+
+void	rrb(t_list_int **stack_a, t_list_int **stack_b)
+{
+	(void) stack_a;
+	rr_one(stack_b);
 }

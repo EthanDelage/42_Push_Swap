@@ -15,6 +15,8 @@ void	r_one(t_list_int **stack)
 {
 	t_list_int	*last;
 
+	if (*stack == NULL || (*stack)->next)
+		return ;
 	last = lstlast_int(*stack);
 	last->next = *stack;
 	*stack = (*stack)->next;
@@ -25,6 +27,8 @@ void	rr_one(t_list_int **stack)
 {
 	t_list_int	*elem_before_last;
 
+	if (*stack == NULL || (*stack)->next == NULL)
+		return ;
 	elem_before_last = before_last(*stack);
 	elem_before_last->next->next = *stack;
 	*stack = elem_before_last->next;

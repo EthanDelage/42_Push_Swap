@@ -15,6 +15,8 @@ void	p_one(t_list_int **stack, t_list_int **stack_where_push)
 {
 	t_list_int	*tmp;
 
+	if (*stack == NULL)
+		return ;
 	tmp = *stack;
 	*stack = (*stack)->next;
 	tmp->next = *stack_where_push;

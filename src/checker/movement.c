@@ -32,9 +32,3 @@ void	sb(t_list_int **stack_a, t_list_int **stack_b)
 	(void) stack_a;
 	s_one(stack_b);
 }
-
-void	ss(t_list_int **stack_a, t_list_int **stack_b)
-{
-	s_one(stack_a);
-	s_one(stack_b);
-}

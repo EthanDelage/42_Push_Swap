@@ -65,11 +65,11 @@ SRCS =				$(PARSING) \
 
 SRCS_BONUS =		$(PARSING) \
 					$(LIST) \
+					sort/bubble_sort.c \
 					checker/checker.c \
 					checker/get_instruction.c \
 					checker/movement.c \
 					checker/rotate.c \
-					checker/reverse_rotate.c \
 
 OBJS_BONUS =		$(addprefix $(BUILD_DIR), $(SRCS_BONUS:.c=.o))
 
@@ -86,7 +86,7 @@ LIBFT =				$(LIBFT_DIR)libft.a
 # Compilation
 # ***************************
 
-FLAGS =				-Wall -Wextra -Werror
+FLAGS =				-Wall -Wextra -Werror -g3
 
 DEP_FLAGS =			-MMD -MP
 

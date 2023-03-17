@@ -66,9 +66,9 @@ static int	execute_an_instruction(t_list_int **stack_a, t_list_int **stack_b,
 {
 	const char	*movement[] = {"sa\n", "sb\n", "ss\n", "pa\n",
 		"pb\n", "ra\n", "rb\n", "rr\n",
-		"rra\n", "rrb\n", "rrr\n"};
-	const void	(function[])(t_list_int **, t_list_int **) = {pa, pb,
-		sa, sb, ss, ra, rb, rr, rra, rrb, rrr};
+		"rra\n", "rrb\n", "rrr\n", NULL};
+	void	(*function[])(t_list_int **, t_list_int **) = {sa, sb,
+		ss, pa, pb, ra, rb, rr, rra, rrb, rrr};
 	size_t		index;
 
 	index = 0;
