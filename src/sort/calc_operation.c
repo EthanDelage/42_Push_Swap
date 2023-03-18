@@ -38,7 +38,7 @@ static void	insert_in_sorted_list(t_list_int **stack_a, t_list_int **stack_b)
 
 	if (ft_max(move.ra, move.rb) == nb_move)
 		sort_with_rr(stack_a, stack_b, move);
-	else if (ft_max( move.rrb, move.rra) == nb_move)
+	else if (ft_max(move.rrb, move.rra) == nb_move)
 		sort_with_rrr(stack_a, stack_b, move);
 	else
 		sort_with_rotate(stack_a, stack_b, move);
