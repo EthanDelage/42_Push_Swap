@@ -106,7 +106,7 @@ $(NAME):			$(LIBFT) $(OBJS)
 					$(CC) $(FLAGS) $(OBJS) -o $@ $(LIBFT)
 
 bonus:				$(LIBFT) $(OBJS_BONUS)
-					$(CC) $(FLAGS) $(LIBFT) -I $(INC_DIR) $(OBJS_BONUS) -o checker
+					$(CC) $(FLAGS) -I $(INC_DIR) $(OBJS_BONUS) -o checker $(LIBFT)
 
 -include			$(DEPS)
 

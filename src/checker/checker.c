@@ -61,16 +61,17 @@ static int	execute_instruction(t_list_int **stack_a, t_list *instruction)
 	return (1);
 }
 
-typedef void (*function)(t_list_int**, t_list_int**);
+typedef void	(*t_function)(t_list_int**, t_list_int**);
+
 static int	execute_an_instruction(t_list_int **stack_a, t_list_int **stack_b,
 				char *instruction)
 {
-	const char	*movement[] = {"sa\n", "sb\n", "ss\n", "pa\n",
-		"pb\n", "ra\n", "rb\n", "rr\n",
+	const char			*movement[] = {"sa\n", "sb\n", "ss\n",
+		"pa\n", "pb\n", "ra\n", "rb\n", "rr\n",
 		"rra\n", "rrb\n", "rrr\n", NULL};
-	const function function[] = {&sa, &sb,
-		&ss, &pa, &pb, &ra, &rb, &rr, &rra, &rrb, &rrr};
-	size_t		index;
+	const t_function	function[] = {&sa, &sb, &ss, &pa,
+		&pb, &ra, &rb, &rr, &rra, &rrb, &rrr};
+	size_t				index;
 
 	index = 0;
 	while (movement[index])
