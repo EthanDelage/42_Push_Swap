@@ -15,7 +15,7 @@ void	r_one(t_list_int **stack)
 {
 	t_list_int	*last;
 
-	if (*stack == NULL || (*stack)->next)
+	if (*stack == NULL || (*stack)->next == NULL)
 		return ;
 	last = lstlast_int(*stack);
 	last->next = *stack;
